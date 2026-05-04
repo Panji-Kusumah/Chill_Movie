@@ -1,9 +1,25 @@
-const InputField = ({ label, type = "text", placeholder, icon, value, onChange, ...props }) => {
+const InputField = ({
+    label,
+    name,
+    type = "text",
+    placeholder,
+    icon,
+    value,
+    onChange,
+    ...props
+}) => {
     return (
         <div className="flex flex-col gap-[8px] text-left w-full font-lato">
-            <label className="text-[16px] text-white opacity-80 ml-2">{label}</label>
+            <label
+                htmlFor={name}
+                className="text-[16px] text-white opacity-80 ml-2"
+            >
+                {label}
+            </label>
             <div className="relative">
                 <input
+                    id={name}
+                    name={name}
                     type={type}
                     placeholder={placeholder}
                     value={value}

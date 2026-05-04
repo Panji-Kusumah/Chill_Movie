@@ -13,8 +13,6 @@ const requests = {
 };
 
 const HomePage = () => {
-    console.log("Kunci TMDB Aktif:", API_KEY);
-// console.log("Test API Key:", API_KEY);
     return (
         <div className="w-full bg-[#181818] min-h-screen overflow-x-hidden">
             <div className="-mt-[70px] md:-mt-[80px]">

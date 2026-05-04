@@ -3,9 +3,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import AuthLayout from '../layouts/AuthLayout.jsx';
 import InputField from '../components/InputField.jsx';
 import Button from '../components/Button.jsx';
+
 import googleIcon from '../assets/logo/google.png';
 import eyeOffIcon from '../assets/logo/Vector.png';
 import loginBG from '../assets/image/loginBG.jpg';
+
+// 🔥 IMPORT AUTH
+import { getUsers, setCurrentUser } from '../utilities/auth';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -17,21 +21,28 @@ const LoginPage = () => {
         event.preventDefault();
         setError('');
 
-        if (!username || !password) {
+        // VALIDASI INPUT
+        if (!username.trim() || !password.trim()) {
             setError("Username dan kata sandi wajib diisi.");
             return;
         }
-
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-
+        // AMBIL USER DARI AUTH
+        const users = getUsers();
+        // COCOKKAN USER (AMAN)
         const foundUser = users.find(
-            user => user.username === username && user.password === password
+            user =>
+                user.username.toLowerCase() === username.trim().toLowerCase() &&
+                user.password === password
         );
 
         if (foundUser) {
+            // SET LOGIN SESSION
+            setCurrentUser(foundUser.username);
+            // MASUK HOME
             navigate('/home');
         } else {
             setError("Username atau kata sandi salah.");
+            
         }
     };
 
