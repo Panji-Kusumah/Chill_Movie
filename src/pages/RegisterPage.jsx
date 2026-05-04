@@ -15,10 +15,8 @@ const RegisterPage = () => {
             backgroundImage={loginBG}
         >
             <form className="flex flex-col gap-[20px] md:gap-[24px] w-full">
-                {/* Input Username */}
                 <InputField label="Username" placeholder="Masukkan username" />
-
-                {/* Group Input Kata Sandi & Konfirmasi */}
+                {/* password & konfirmasi password */}
                 <div className="flex flex-col gap-[8px] md:gap-[12px]">
                     <InputField
                         label="Kata Sandi"
@@ -32,8 +30,6 @@ const RegisterPage = () => {
                         placeholder="Masukkan kata sandi"
                         icon={eyeOffIcon}
                     />
-                    
-                    {/* Teks Navigasi Bawah Input */}
                     <div className="flex items-center text-[10px] md:text-[14px] px-1 mt-1">
                         <span className="text-white/60 whitespace-nowrap">
                             Sudah punya akun?{' '}
