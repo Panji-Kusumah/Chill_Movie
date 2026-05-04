@@ -8,13 +8,14 @@ function App() {
     return (
         <Router>
             <Routes>
-                {/* login & register */}
+                {/* Login & Register */}
+                <Route path="/" element={<LoginPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
 
                 {/* Halaman utama dengan layout */}
                 <Route element={<MainLayout />}>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
                 </Route>
             </Routes>
         </Router>

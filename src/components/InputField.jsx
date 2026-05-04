@@ -1,5 +1,4 @@
-
-const InputField = ({ label, type = "text", placeholder, icon }) => {
+const InputField = ({ label, type = "text", placeholder, icon, value, onChange, ...props }) => {
     return (
         <div className="flex flex-col gap-[8px] text-left w-full font-lato">
             <label className="text-[16px] text-white opacity-80 ml-2">{label}</label>
@@ -7,7 +6,10 @@ const InputField = ({ label, type = "text", placeholder, icon }) => {
                 <input
                     type={type}
                     placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
                     className="w-full h-[48px] px-6 rounded-[50px] border border-chill-border bg-chill-dark text-white outline-none focus:border-white/50 transition duration-300 placeholder:opacity-40"
+                    {...props}
                     required
                 />
                 {icon && (
@@ -21,4 +23,5 @@ const InputField = ({ label, type = "text", placeholder, icon }) => {
         </div>
     );
 };
+
 export default InputField;
