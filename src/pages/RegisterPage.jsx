@@ -8,7 +8,7 @@ import googleIcon from '../assets/logo/google.png';
 import eyeOffIcon from '../assets/logo/Vector.png';
 import loginBG from '../assets/image/loginBG.jpg';
 
-// 🔥 CONNECT KE AUTH
+// CONNECT KE AUTH
 import { getUsers, saveUsers } from '../utilities/auth';
 
 const RegisterPage = () => {
@@ -22,42 +22,35 @@ const RegisterPage = () => {
         event.preventDefault();
         setError('');
 
-        // ✅ VALIDASI KOSONG
+        // Validasi kosong
         if (!username.trim() || !password.trim() || !confirmPassword.trim()) {
             setError("Seluruh kolom wajib diisi.");
             return;
         }
 
-        // ✅ VALIDASI PASSWORD
+        // Validasi pass
         if (password !== confirmPassword) {
             setError("Konfirmasi kata sandi tidak sesuai.");
             return;
         }
-
-        // ✅ AMBIL USER (dari auth.js, bukan localStorage langsung)
+        // Ambil User dari dari auth.js, bukan localStorage langsung
         const users = getUsers();
-
-        // ✅ CEK DUPLIKAT (case insensitive + trim)
+        // coba cek duplikat
         const isExist = users.some(
             user => user.username.toLowerCase() === username.trim().toLowerCase()
         );
-
         if (isExist) {
             setError("Username sudah digunakan.");
             return;
         }
 
-        // ✅ BUAT USER BARU
+        // Bikin user baru
         const newUser = {
             username: username.trim(),
             password
         };
-
-        // ✅ SIMPAN USER (via auth.js)
         users.push(newUser);
         saveUsers(users);
-
-        // ✅ PINDAH KE LOGIN
         navigate('/login');
     };
 
@@ -74,14 +67,12 @@ const RegisterPage = () => {
                         {error}
                     </div>
                 )}
-
                 <InputField 
                     label="Username" 
                     placeholder="Masukkan username" 
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                 />
-
                 <div className="flex flex-col gap-[8px] md:gap-[12px]">
                     <InputField
                         label="Kata Sandi"
@@ -99,7 +90,6 @@ const RegisterPage = () => {
                         value={confirmPassword}
                         onChange={(event) => setConfirmPassword(event.target.value)}
                     />
-                    
                     <div className="flex items-center text-[10px] md:text-[14px] px-1 mt-1">
                         <span className="text-white/60 whitespace-nowrap">
                             Sudah punya akun?{' '}
@@ -109,12 +99,9 @@ const RegisterPage = () => {
                         </span>
                     </div>
                 </div>
-
                 <div className="flex flex-col gap-[12px] md:gap-[16px] mt-2">
                     <Button type="submit">Daftar</Button>
-
                     <div className="text-center text-white/50 text-sm">Atau</div>
-
                     <Button type="button" variant="outline" icon={googleIcon}>
                         Daftar dengan Google
                     </Button>

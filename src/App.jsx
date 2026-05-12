@@ -12,11 +12,9 @@ function App() {
             <Routes>
                 {/* kalau buka "/" langsung ke login */}
                 <Route path="/" element={<Navigate to="/login" replace />} />
-
                 {/* halaman login & register */}
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-
                 {/* halaman utama (ada navbar & harus login) */}
                 <Route element={<MainLayout />}>
                     <Route 
