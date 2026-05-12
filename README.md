@@ -1,48 +1,81 @@
-🎬 Chill Movie - Platform Streaming Film
-    Chill adalah aplikasi berbasis web yang dirancang untuk memberi pengguna akses ke library film dan acara TV yang luas dari perangkat mereka. Chill menawarkan antarmuka yang ramah pengguna yang memungkinkan pengguna mencari film dan acara TV, dan mulai menonton secara instan. Chill menawarkan rekomendasi hasil personalisasi berdasarkan kebiasaan menonton pengguna, membantu pengguna menemukan film dan acara TV baru yang mungkin tidak mereka temukan sebelumnya. Selain itu, Chill juga menawarkan konten orisinal, termasuk film dan acara TV, yang hanya dapat ditemukan di aplikasi Chill, menjadikannya sumber yang unik dan berharga bagi pengguna.
+# 🎬 Chill Movie – Streaming Platform (Frontend Simulation)
+## 📌 Overview
+**Chill Movie** adalah aplikasi web berbasis React.js yang mensimulasikan platform streaming film dan TV show.  
+Aplikasi ini dirancang untuk memberikan pengalaman eksplorasi konten seperti platform modern dengan fokus pada UI/UX, arsitektur frontend, dan state management.
 
-📝 Deskripsi Project
-Dibangun menggunakan React.js, proyek ini berfokus pada simulasi antarmuka pengguna (UI) yang bersih dan responsif.
+Pengguna dapat:
+- Menjelajahi katalog film & TV show
+- Mencari konten secara real-time
+- Mendapatkan rekomendasi personal (simulasi)
+- Mengakses konten orisinal eksklusif (UI simulation)
 
-Aplikasi ini menawarkan:
-✨ Eksplorasi pustaka konten yang luas
-🎯 Simulasi rekomendasi tontonan personal
-🎬 Visualisasi konten orisinal eksklusif
-⚡ Performa antarmuka yang responsif dan persisten
+---
 
-Pengembangan proyek ini mengedepankan arsitektur frontend modern dan efisien dengan penerapan:
-Reusable Component: Pendekatan modular berstandar industri (Atomic Design).
-Global State Management: Pengelolaan sesi user, preferensi UI, dan data lokal secara real-time tanpa prop-drilling.
-SEO Optimization: Manajemen meta tags dinamis untuk kebutuhan mesin pencari dan social sharing.
-Integrasi Media Playback: Kontrol player video yang presisi.
+## ✨ Features
 
-🛠️ Tech Stack
-⚛️ Core
-React.js (Vite)
-🌬️ Styling
-Tailwind CSS
+- 🎥 **Content Discovery** – Eksplorasi film & TV show dari API TMDB
+- 🎯 **Personalized Recommendation (Simulation)** – Rekomendasi berbasis preferensi user (frontend logic)
+- 🎬 **Exclusive Content UI** – Tampilan konten original seperti platform streaming modern
+- ⚡ **Responsive UI/UX** – Optimal di desktop dan mobile
+- 🧠 **Client-Side State Management** – Tanpa backend, semua state berjalan di frontend
 
+---
 
-⚡ Tools & Libraries
-Zustand (Global State Management & Local Storage Persistence)
-React Helmet Async (Search Engine Optimization / SEO)
-React Router DOM (Client-side Routing)
-JavaScript (ES6+)
-HTML5
-CSS3
-🎬 API
-TMDB
-Layanan REST API gratis yang menyediakan data komprehensif terkait film, serial TV, aktor, kru, ulasan, rating, dan aset visual.
+## 🧱 Frontend Architecture
 
-📂 Struktur Direktori
-Plaintext
+### ♻️ Reusable Component System
+- Menggunakan pendekatan modular (Atomic Design concept)
+- Komponen dipisahkan berdasarkan tanggung jawab (Navbar, Hero, MovieRow, dll)
+
+### 🌐 Global State Management
+- Menggunakan **Zustand**
+- Menyimpan:
+  - Session user
+  - Preferensi UI
+  - Data lokal (persisted state)
+- Menghindari prop drilling
+
+### 🔍 SEO Optimization
+- Dynamic meta tags menggunakan **React Helmet Async**
+- Optimasi sharing sosial media & indexing
+
+### 🎬 Media Playback Simulation
+- UI video player dengan kontrol (play/pause/seek simulation)
+
+---
+
+## 🛠️ Tech Stack
+
+### Core
+- ⚛️ React.js (Vite)
+- 🧠 JavaScript (ES6+)
+- 🌐 HTML5 & CSS3
+
+### Styling
+- 🌬️ Tailwind CSS
+
+### State & Routing
+- 🧠 Zustand (Global State + Persistence)
+- 🚏 React Router DOM
+
+### SEO
+- 🔎 React Helmet Async
+
+### API
+- 🎬 TMDB API (The Movie Database)
+  - Data film & TV show
+  - Rating, cast, crew, poster, trailer metadata
+
+---
+
+## 📂 Project Structure
+
+```plaintext
 src/
-├── assets/         # Aset logo, ikon, dan gambar statis
-├── components/     # Komponen UI (Hero, Navbar, MovieRow, dll)
-├── css/            # Konfigurasi global Tailwind CSS
-├── layouts/        # Komponen layout utama (AuthLayout, MainLayout)
-├── pages/          # Halaman aplikasi (LoginPage, RegisterPage, HomePage)
-├── store/          # Global State Management (Zustand Slices)
-└── utilities/      # Fungsi utilitas bantuan (Auth Logic)
-⚠️ Catatan
-Ini adalah simulasi frontend Tugas Botcamp HARI SENIN yang berfokus pada UI/UX, State Management(tanpa backend khusus).
+├── assets/        # Gambar, ikon, aset statis
+├── components/    # Komponen UI reusable (Navbar, Hero, MovieRow)
+├── css/           # Konfigurasi global Tailwind
+├── layouts/       # Layout utama (MainLayout, AuthLayout)
+├── pages/         # Halaman aplikasi (Home, Login, Register)
+├── store/         # Zustand state management
+└── utilities/     # Helper functions (auth logic, helpers)
