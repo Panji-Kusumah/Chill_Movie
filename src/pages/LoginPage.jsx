@@ -16,8 +16,6 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
-    // 2. Ambil fungsi login dari Zustand
     const { loginZustand } = useAuthStore();
     const handleLogin = (event) => {
         event.preventDefault();

@@ -1,12 +1,9 @@
 import { useState, useRef } from "react";
-// Import "Kamar" UI Store kita
 import { useUIStore } from '../store/useUIStore';
-
 import playIcon from "../assets/logo/play-circle.png";
 import infoIcon from "../assets/logo/information-outline.png";
 import muteIcon from "../assets/logo/mute.png"; 
 import volumeIcon from "../assets/logo/volume.png";
-
 const Hero = () => {
     const { isMuted, toggleGlobalMute } = useUIStore();
     const [isPlaying, setIsPlaying] = useState(true);

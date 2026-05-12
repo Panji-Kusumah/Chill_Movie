@@ -7,8 +7,6 @@ import Button from '../components/Button.jsx';
 import googleIcon from '../assets/logo/google.png';
 import eyeOffIcon from '../assets/logo/Vector.png';
 import loginBG from '../assets/image/loginBG.jpg';
-
-// CONNECT KE AUTH
 import { getUsers, saveUsers } from '../utilities/auth';
 
 const RegisterPage = () => {
