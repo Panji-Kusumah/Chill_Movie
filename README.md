@@ -11,16 +11,6 @@ Pengguna dapat:
 
 ---
 
-## ✨ Features
-
-- 🎥 **Content Discovery** – Eksplorasi film & TV show dari API TMDB
-- 🎯 **Personalized Recommendation (Simulation)** – Rekomendasi berbasis preferensi user (frontend logic)
-- 🎬 **Exclusive Content UI** – Tampilan konten original seperti platform streaming modern
-- ⚡ **Responsive UI/UX** – Optimal di desktop dan mobile
-- 🧠 **Client-Side State Management** – Tanpa backend, semua state berjalan di frontend
-
----
-
 ## 🧱 Frontend Architecture
 
 ### ♻️ Reusable Component System
