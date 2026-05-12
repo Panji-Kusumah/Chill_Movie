@@ -1,12 +1,13 @@
 import { useState, useRef } from "react";
-import { useUIStore } from '../store/useUIStore'; 
+// Import "Kamar" UI Store kita
+import { useUIStore } from '../store/useUIStore';
+
 import playIcon from "../assets/logo/play-circle.png";
 import infoIcon from "../assets/logo/information-outline.png";
 import muteIcon from "../assets/logo/mute.png"; 
 import volumeIcon from "../assets/logo/volume.png";
 
 const Hero = () => {
-    // Panggil state global isMuted dan fungsi perubahnya
     const { isMuted, toggleGlobalMute } = useUIStore();
     const [isPlaying, setIsPlaying] = useState(true);
     const [isReady, setIsReady] = useState(false);
@@ -27,11 +28,13 @@ const Hero = () => {
         sendCommand(command);
         toggleGlobalMute(); 
     };
+
     const togglePlay = () => {
         const command = isPlaying ? 'pauseVideo' : 'playVideo';
         sendCommand(command);
         setIsPlaying(!isPlaying);
     };
+
     return (
         <section className="relative h-[60vh] md:h-[95vh] w-full overflow-hidden bg-[#181818]">
             {/* Video Background */}
@@ -68,7 +71,7 @@ const Hero = () => {
                         <img src={infoIcon} alt="Info" className="w-4 h-4 md:w-5 md:h-5 brightness-0 invert" />
                         Selengkapnya
                     </button>
-                    <div className="flex items-center gap-2 md:gap-3 ml-auto md:ml-0">
+                    <div className="flex items-center gap-2 md:gap-3">
                         <span className="border border-white/40 text-white flex items-center justify-center w-[35px] h-[35px] md:w-[40px] md:h-[40px] rounded-full text-[12px] md:text-[14px] font-bold">
                             18+
                         </span>
