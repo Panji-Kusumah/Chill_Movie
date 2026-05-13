@@ -31,7 +31,7 @@ const RegisterPage = () => {
             setError("Konfirmasi kata sandi tidak sesuai.");
             return;
         }
-        // Ambil User dari dari auth.js, bukan localStorage langsung
+        // Ambil User dari dari auth.js
         const users = getUsers();
         // coba cek duplikat
         const isExist = users.some(
