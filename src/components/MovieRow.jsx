@@ -6,7 +6,6 @@ import arrowRight from '../assets/logo/arrow-right.png';
 const MovieRow = ({ title, variant = 'portrait', fetchUrl }) => {
     const [movies, setMovies] = useState([]);
     const sliderRef = useRef(null);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -35,7 +34,6 @@ const MovieRow = ({ title, variant = 'portrait', fetchUrl }) => {
 
     return (
         <div className="relative w-full py-[30px] md:py-[40px] px-[20px] md:px-[80px] group/row">
-
             <h2 className="text-white text-[18px] md:text-[24px] font-bold mb-[20px] md:mb-[32px]">
                 {title}
             </h2>
@@ -88,7 +86,6 @@ const MovieRow = ({ title, variant = 'portrait', fetchUrl }) => {
                         <img src={arrowRight} alt="Next" className="w-[16px] h-[16px] md:w-[24px] md:h-[24px] brightness-0 invert" />
                     </div>
                 </button>
-
             </div>
         </div>
     );

@@ -22,7 +22,7 @@ const LoginPage = () => {
         setError('');
 
         if (!username.trim() || !password.trim()) {
-            setError("Username dan kata sandi wajib diisi.");
+            setError("Username dan Password Wajib Diisi.");
             return;
         }
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
             loginZustand(foundUser.username);
             navigate('/home');
         } else {
-            setError("Username atau kata sandi salah.");
+            setError("Username atau Password salah.");
         }
     };
 
@@ -55,9 +55,9 @@ const LoginPage = () => {
                 />
                 <div className="flex flex-col gap-[8px] md:gap-[12px]">
                     <InputField
-                        label="Kata Sandi"
+                        label="Password"
                         type="password"
-                        placeholder="Masukkan kata sandi"
+                        placeholder="Masukkan Password"
                         icon={eyeOffIcon}
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
