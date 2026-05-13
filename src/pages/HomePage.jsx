@@ -17,9 +17,7 @@ const requests = {
 const HomePage = () => {
     return (
         <div className="w-full bg-[#181818] min-h-screen overflow-x-hidden">
-            <SEO title="Beranda" description="Chill adalah platform streaming modern yang menghadirkan ribuan film, acara TV, 
-                        dan konten orisinal eksklusif. Nikmati pengalaman menonton instan dengan 
-                        rekomendasi personal yang dirancang khusus untuk Anda." />
+            <SEO title="Beranda" description="Chill adalah platform streaming modern yang menghadirkan ribuan film, acara TV,dan konten orisinal eksklusif. Nikmati pengalaman menonton instan dengan rekomendasi personal yang dirancang khusus untuk Anda." />
             <div className="-mt-[70px] md:-mt-[80px]">
                 <Hero />
             </div>
