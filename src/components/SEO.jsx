@@ -7,7 +7,7 @@ const SEO = ({ title, description, image }) => {
             <meta name="description" content={description} />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href={window.location.href} />
-            <meta property="og:type" content="website" />
+            <meta property="og:type" content="Website Tempat Nonton Film" />
             <meta property="og:url" content={window.location.href} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
