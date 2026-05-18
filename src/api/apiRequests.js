@@ -1,10 +1,8 @@
 const requests = {
-    // Kategori Utama
     fetchTrending: '/trending/all/week',
     fetchTopRated: '/movie/top_rated',
     fetchPopular: '/movie/popular',
     fetchNowPlaying: '/movie/now_playing',
-    // Berdasarkan Genre Resmi TMDB
     fetchActionMovies: '/discover/movie?with_genres=28',
     fetchAdventureMovies: '/discover/movie?with_genres=12',
     fetchAnimationMovies: '/discover/movie?with_genres=16',

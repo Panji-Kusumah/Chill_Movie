@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import AuthLayout from '../layouts/AuthLayout.jsx';
 import InputField from '../components/InputField.jsx';
 import Button from '../components/Button.jsx';
-
 import googleIcon from '../assets/logo/google.png';
 import eyeOffIcon from '../assets/logo/Vector.png';
 import loginBG from '../assets/image/loginBG.jpg';
@@ -15,7 +14,6 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
     const handleRegister = (event) => {
         event.preventDefault();
         setError('');

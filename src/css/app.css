@@ -9,12 +9,9 @@
     font-family: "Lato", sans-serif;
     }
 }
-
-/* Scrollbar Hide untuk browser chrome safari edge baru biar rapih */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-/* Scrollbar Hide untuk firefox */
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

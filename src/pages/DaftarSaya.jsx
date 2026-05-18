@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar';
 const DaftarSaya = () => {
 
     const { watchlist } = useWatchlistStore();
-
     return (
         <div className="min-h-screen bg-gradient-to-b from-black via-[#111111] to-[#181818] text-white overflow-hidden">
             <Navbar />
