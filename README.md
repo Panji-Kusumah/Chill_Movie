@@ -47,6 +47,8 @@ Data provided by:
 🎥 TMDB (The Movie Database)
 
 https://www.themoviedb.org/
+VITE_TMDB_KEY=75d1f571da1bdaca64d3e9957bddd0db
+VITE_API_URL='https://api.themoviedb.org/3' 
 
 
 👨 Author
