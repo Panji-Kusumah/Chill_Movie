@@ -14,13 +14,11 @@ const AuthLayout = ({ children, title, subtitle }) => {
                     rounded-[8px] md:rounded-[16px] 
                     flex flex-col items-center 
                     gap-5 md:gap-[37px]">
-                {/* Logo */}
                 <img src={Logo} alt="Chill Logo" className="w-[100px] md:w-[163px]" />
                 <div className="text-center w-full">
                     <h1 className="text-2xl md:text-[32px] font-bold mb-1">{title}</h1>
                     <p className="text-sm md:text-lg font-light opacity-80">{subtitle}</p>
                 </div>
-                {/* Form Container */}
                 {children}
             </div>
         </div>

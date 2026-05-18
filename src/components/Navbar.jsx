@@ -12,10 +12,12 @@ const Navbar = () => {
     const navigate = useNavigate();
     const dropdownRef = useRef(null);
     const { currentUser, logoutZustand } = useAuthStore();
+
     const handleLogout = () => {
         logoutZustand();
         navigate('/login', { replace: true });
     };
+
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -25,16 +27,18 @@ const Navbar = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-[#181818]/80 backdrop-blur-md px-[16px] md:px-[80px] py-4 flex justify-between items-center transition-all">
             <div className="flex items-center gap-[12px] md:gap-[40px]">
                 <Link to="/home">
                     <img src={logo} alt="Chill" className="h-[20px] md:h-[40px] w-auto" />
                 </Link>
+                {/* nav */}
                 <div className="flex items-center gap-[10px] md:gap-[30px] text-white font-semibold opacity-80 text-[10px] md:text-base">
-                    <Link to="#" className="hover:opacity-100 transition">Series</Link>
-                    <Link to="#" className="hover:opacity-100 transition">Film</Link>
-                    <Link to="#" className="hover:opacity-100 transition">Daftar Saya</Link>
+                    <Link to="/series" className="hover:opacity-100 transition">Series</Link>
+                    <Link to="/film" className="hover:opacity-100 transition">Film</Link>
+                    <Link to="/daftar-saya" className="hover:opacity-100 transition">Daftar Saya</Link>
                 </div>
             </div>
             <div className="relative" ref={dropdownRef}>

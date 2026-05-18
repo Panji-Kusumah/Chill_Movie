@@ -19,21 +19,15 @@ const RegisterPage = () => {
     const handleRegister = (event) => {
         event.preventDefault();
         setError('');
-
-        // Validasi kosong
         if (!username.trim() || !password.trim() || !confirmPassword.trim()) {
             setError("Seluruh kolom wajib diisi.");
             return;
         }
-
-        // Validasi pass
         if (password !== confirmPassword) {
             setError("Konfirmasi kata sandi tidak sesuai.");
             return;
         }
-        // Ambil User dari dari auth.js
         const users = getUsers();
-        // coba cek duplikat
         const isExist = users.some(
             user => user.username.toLowerCase() === username.trim().toLowerCase()
         );
@@ -41,8 +35,6 @@ const RegisterPage = () => {
             setError("Username sudah digunakan.");
             return;
         }
-
-        // Bikin user baru
         const newUser = {
             username: username.trim(),
             password
@@ -51,7 +43,6 @@ const RegisterPage = () => {
         saveUsers(users);
         navigate('/login');
     };
-
     return (
         <AuthLayout
             title="Daftar"

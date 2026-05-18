@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
+import DaftarSaya from "./pages/DaftarSaya";
 import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -10,14 +11,11 @@ function App() {
     return (
         <Router>
             <Routes>
-                {/* kalau buka "/" langsung ke login */}
-                <Route path="/" element={<Navigate to="/login" replace />} />
-                {/* halaman login & register */}
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                {/* halaman utama (ada navbar & harus login) */}
+                <Route path="/" element={<Navigate to="/home" replace />} />
                 <Route element={<MainLayout />}>
-                    <Route 
+                    <Route
                         path="/home"
                         element={
                             <ProtectedRoute>
@@ -25,7 +23,16 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/daftar-saya"
+                        element={
+                            <ProtectedRoute>
+                                <DaftarSaya />
+                            </ProtectedRoute>
+                        }
+                    />
                 </Route>
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </Router>
     );

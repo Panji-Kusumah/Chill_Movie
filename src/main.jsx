@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './css/app.css';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider as SEOProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <HelmetProvider>
+        <SEOProvider>
             <App />
-        </HelmetProvider>
+        </SEOProvider>
     </React.StrictMode>,
 )

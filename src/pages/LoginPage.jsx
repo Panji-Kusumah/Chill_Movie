@@ -6,9 +6,7 @@ import Button from '../components/Button.jsx';
 import googleIcon from '../assets/logo/google.png';
 import eyeOffIcon from '../assets/logo/Vector.png';
 
-//Import Store Autentikasi
 import { useAuthStore } from '../store/useAuthStore';
-// cek getUsers untuk mengecek data pendaftar
 import { getUsers } from '../utilities/auth';
 
 const LoginPage = () => {
@@ -20,12 +18,10 @@ const LoginPage = () => {
     const handleLogin = (event) => {
         event.preventDefault();
         setError('');
-
         if (!username.trim() || !password.trim()) {
             setError("Username dan Password Wajib Diisi.");
             return;
         }
-
         const users = getUsers();
         const foundUser = users.find(
             user =>
@@ -40,7 +36,6 @@ const LoginPage = () => {
             setError("Username atau Password salah.");
         }
     };
-
     return (
         <AuthLayout title="Masuk" subtitle="Selamat datang kembali!">
             <form onSubmit={handleLogin} className="w-full flex flex-col gap-[20px] md:gap-[24px]">

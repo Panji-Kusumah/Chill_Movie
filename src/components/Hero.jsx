@@ -25,7 +25,8 @@ const Hero = () => {
     const togglePlay = () => {
         const command = isPlaying ? 'pauseVideo' : 'playVideo';
         sendCommand(command);
-        setIsPlaying(!isPlaying);    };
+        setIsPlaying(!isPlaying);
+    };
     return (
         <section className="relative h-[60vh] md:h-[95vh] w-full overflow-hidden bg-[#181818]">
             {/*  Background Container YT*/}

@@ -12,7 +12,6 @@ const Footer = () => {
     return (
         <footer className="w-full bg-[#181818] border-t border-white/10 pt-[60px] pb-[40px] px-[20px] md:px-[80px] mt-[60px] relative z-50">
             <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-start gap-[40px] min-h-[164px]">
-                {/* BAGIAN INFO */}
                 <div className="flex flex-col gap-[16px] w-full md:w-[350px]">
                     <img src={logoChill} alt="Chill Logo" className="w-[120px] md:w-[150px]" />
                     <p className="text-white/60 text-[14px] md:text-[16px] leading-relaxed">
@@ -25,7 +24,6 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-[40px] md:gap-[100px]">
-                    {/* KOLOM GENRE */}
                     <div className="flex flex-col gap-[16px]">
                         <h4 className="text-white text-[18px] font-bold">Genre</h4>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[30px] md:gap-x-[40px] gap-y-[12px]">
@@ -40,7 +38,6 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
-                    {/* KOLOM BANTUAN */}
                     <div className="flex flex-col gap-[16px] min-w-[150px]">
                         <h4 className="text-white text-[18px] font-bold">Bantuan</h4>
                         <div className="flex flex-col gap-[12px]">
