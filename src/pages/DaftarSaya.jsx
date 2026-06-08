@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import Navbar from '../components/Navbar';
 import SEO from '../components/SEO';
-
-import logo from '../assets/logo/logo.png'; 
+import logo from '../assets/logo/Logo.png'; 
 
 const DaftarSaya = () => {
     const watchlist = useSelector(
