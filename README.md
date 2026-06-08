@@ -87,7 +87,7 @@ VITE_API_URL=https://api.themoviedb.org/3
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/your-username/chill-movie.git
+git clone https://github.com/Panji-Kusumah/Chill_Movie.git
 
 cd chill-movie
 
