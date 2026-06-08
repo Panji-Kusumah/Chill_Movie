@@ -1,56 +1,103 @@
 # 🎬 Chill Movie
-Modern streaming platform simulation built with React.js, Zustand, Axios, Tailwind CSS.
+
+Modern movie streaming platform simulation built with React, Redux Toolkit, Axios, and Tailwind CSS.
+
 ---
+
 ## ✨ Features
-- 🎞️ Real-time movie & TV show catalog
-- 🔍 Genre-based movie discovery
-- ❤️ Smart Watchlist System (CRUD)
-- 🌙 Premium dark cinematic UI
-- 📱 Fully responsive design
-- 🚫 Custom 404 Not Found page
-- 💾 Persistent Local Storage with Zustand
+
+* 🎞️ Browse trending, popular, top-rated, and latest movies
+* 🔍 Discover movies by genre
+* ❤️ Watchlist management (Add & Remove)
+* 🗂️ Global State Management with Redux Toolkit
+* 📱 Fully responsive design
+* 🌙 Modern dark cinematic UI
+* 🚫 Custom 404 Not Found page
+* ⚡ Fast performance powered by Vite
+
 ---
-## 🧠 Watchlist System
-User dapat:
-- Menambahkan film ke **Daftar Saya**
-- Menghapus film menggunakan smart toggle button
-- Menyimpan data secara persisten menggunakan Zustand Persist
+
+## 🧠 State Management
+
+Implemented using **Redux Toolkit**.
+
+Features include:
+
+* Store movie data globally
+* Store watchlist data globally
+* Add movie to watchlist
+* Remove movie from watchlist
+* Reusable Redux store across components
+
 ---
+
 ## 🛠️ Tech Stack
-| Technology | Usage |
-|---|---|
-| React.js (Vite) | Frontend Framework |
-| Tailwind CSS | Styling |
-| Zustand | State Management |
-| React Router DOM | Routing |
-| Axios | API Request |
-| TMDB API | Movie Database |
-| React Icons | Icons |
+
+| Technology       | Usage              |
+| ---------------- | ------------------ |
+| React.js (Vite)  | Frontend Framework |
+| Redux Toolkit    | State Management   |
+| React Redux      | Redux Integration  |
+| React Router DOM | Routing            |
+| Axios            | API Requests       |
+| Tailwind CSS     | Styling            |
+| TMDB API         | Movie Data Source  |
+| React Icons      | UI Icons           |
+
 ---
+
 ## 📂 Project Structure
+
 ```plaintext
 src/
-├── api/              # Axios & TMDB API configuration
-├── assets/           # Images, logos, static assets
-├── components/       # Reusable UI components
-├── layouts/          # Layout wrappers
-├── pages/            # Application pages
-├── routes/           # Route configuration
-├── store/            # Zustand global stores
-├── utilities/        # Constants & helper functions
-└── App.jsx           # Main application entry
+├── api/                # Axios & TMDB configuration
+├── assets/             # Images, logos, static assets
+├── components/         # Reusable UI components
+├── layouts/            # Layout wrappers
+├── pages/              # Application pages
+├── store/              # Redux store & slices
+├── css/                # Stylesheets
+├── App.jsx             # Root component
+└── main.jsx            # Application entry point
+```
 
-🌍 API Source
+---
 
-Data provided by:
+## 🌍 API Source
 
-🎥 TMDB (The Movie Database)
+Movie data provided by:
+
+**The Movie Database (TMDB)**
 
 https://www.themoviedb.org/
-VITE_TMDB_KEY=75d1f571da1bdaca64d3e9957bddd0db
-VITE_API_URL='https://api.themoviedb.org/3' 
 
+---
 
-👨 Author
+## ⚙️ Environment Variables
 
-Panji Kusumah
+Create a `.env` file in the root project:
+
+```env
+VITE_TMDB_KEY=YOUR_TMDB_API_KEY
+VITE_API_URL=https://api.themoviedb.org/3
+```
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/your-username/chill-movie.git
+
+cd chill-movie
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 👨‍💻 Author
+**Panji Kusumah**
+
