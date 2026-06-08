@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const NotFound = () => {
     return (
         <div className="min-h-screen bg-[#181818] text-white flex flex-col">
+            <SEO title="NotFound" description="Chill adalah platform streaming modern." />
             <Navbar />
             <main className="flex-1 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
                 <div className="absolute w-[500px] h-[500px] bg-white/5 blur-3xl rounded-full"></div>

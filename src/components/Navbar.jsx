@@ -12,12 +12,10 @@ const Navbar = () => {
     const navigate = useNavigate();
     const dropdownRef = useRef(null);
     const { currentUser, logoutZustand } = useAuthStore();
-
     const handleLogout = () => {
         logoutZustand();
         navigate('/login', { replace: true });
     };
-
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -27,7 +25,6 @@ const Navbar = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-
     return (
         <nav className="fixed top-0 left-0 w-full z-50 bg-[#181818]/80 backdrop-blur-md px-[16px] md:px-[80px] py-4 flex justify-between items-center transition-all">
             <div className="flex items-center gap-[12px] md:gap-[40px]">

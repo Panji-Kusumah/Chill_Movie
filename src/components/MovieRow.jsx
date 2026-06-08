@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MovieCard from './MovieCard';
 import arrowLeft from '../assets/logo/arrow-left.png';
 import arrowRight from '../assets/logo/arrow-right.png';
 import tmdbApi from '../api/axiosConfig';
-
+import { setMoviesByCategory } from '../store/watchlistSlice';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const GENRE_MAP = {
@@ -27,8 +28,6 @@ const GENRE_MAP = {
     10752: 'War',
     37: 'Western'
 };
-
-// skeleton
 const MovieSkeleton = ({ variant }) => (
     <div
         className={`flex-shrink-0 animate-pulse bg-white/5 rounded-lg ${variant === 'portrait'
@@ -37,25 +36,34 @@ const MovieSkeleton = ({ variant }) => (
             }`}
     />
 );
-
 const MovieRow = ({
     title,
     variant = 'portrait',
     fetchUrl
 }) => {
+    const dispatch = useDispatch();
 
-    const [movies, setMovies] = useState([]);
+    const movies = useSelector(
+        (state) =>
+            state.watchlist.movieRows?.[fetchUrl] || []
+    );
     const [isLoading, setIsLoading] = useState(true);
-
     const sliderRef = useRef(null);
-
-    // fetch data
     useEffect(() => {
         const fetchData = async () => {
+            if (movies.length > 0) {
+                setIsLoading(false);
+                return;
+            }
             setIsLoading(true);
             try {
                 const response = await tmdbApi.get(fetchUrl);
-                setMovies(response.data.results || []);
+                dispatch(
+                    setMoviesByCategory({
+                        key: fetchUrl,
+                        movies: response.data.results || []
+                    })
+                );
             } catch (error) {
                 if (import.meta.env.DEV) {
                     console.error(
@@ -72,8 +80,11 @@ const MovieRow = ({
         if (fetchUrl) {
             fetchData();
         }
-    }, [fetchUrl]);
-    // slider nav
+    }, [
+        fetchUrl,
+        dispatch,
+        movies.length
+    ]);
     const scroll = (direction) => {
         if (sliderRef.current) {
             const scrollAmount =
@@ -95,7 +106,6 @@ const MovieRow = ({
                 {title}
             </h2>
             <div className="relative flex items-center">
-                {/* nav kiri */}
                 <button
                     onClick={() => scroll('left')}
                     className="absolute left-[-10px] md:left-[-50px] top-1/2 -translate-y-1/2 z-40 opacity-100 md:opacity-0 group-hover/row:opacity-100 transition-all duration-300"
@@ -108,7 +118,6 @@ const MovieRow = ({
                         />
                     </div>
                 </button>
-                {/* slider */}
                 <div
                     ref={sliderRef}
                     className="flex items-center overflow-x-scroll overflow-y-visible scrollbar-hide gap-4 md:gap-6 scroll-smooth snap-x snap-mandatory py-4"
@@ -149,18 +158,18 @@ const MovieRow = ({
                                             : null
                                     }
                                     rating={movie.vote_average}
-                                    genres={
-                                        movie.genre_ids
-                                            ?.slice(0, 3)
-                                            .map(id => GENRE_MAP[id])
-                                            .filter(Boolean)
-                                    }
+                                    genres={movie.genre_ids
+                                        ?.slice(0, 3)
+                                        .map(
+                                            (id) =>
+                                                GENRE_MAP[id]
+                                        )
+                                        .filter(Boolean)}
                                 />
                             );
                         })
                     )}
                 </div>
-                {/* nav kanan */}
                 <button
                     onClick={() => scroll('right')}
                     className="absolute right-[-10px] md:right-[-50px] top-1/2 -translate-y-1/2 z-40 opacity-100 md:opacity-0 group-hover/row:opacity-100 transition-all duration-300"

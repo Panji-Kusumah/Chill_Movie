@@ -15,8 +15,6 @@ export default {
             fontFamily: {
                 lato: ['Lato', 'sans-serif'],
             },
-
-            // animasi validasi merah login 
             keyframes: {
                 shake: {
                     '0%, 100%': { transform: 'translateX(0)' },

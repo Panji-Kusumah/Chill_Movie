@@ -1,5 +1,8 @@
-import useWatchlistStore from '../store/useWatchlistStore';
-
+import { useSelector, useDispatch } from 'react-redux';
+import {
+    addToWatchlist,
+    removeFromWatchlist
+} from '../store/watchlistSlice';
 import {
     FaPlay,
     FaCheck,
@@ -7,7 +10,6 @@ import {
     FaChevronDown,
     FaStar
 } from 'react-icons/fa';
-
 const MovieCard = ({
     id,
     variant = 'portrait',
@@ -17,32 +19,31 @@ const MovieCard = ({
     rating,
     genres = []
 }) => {
-
-    const {
-        watchlist,
-        addToWatchlist,
-        removeFromWatchlist
-    } = useWatchlistStore();
+    const dispatch = useDispatch();
+    const watchlist = useSelector(
+        (state) => state.watchlist.watchlist
+    );
     const isSaved = watchlist.some(
         (item) => item.id === id
     );
     const formattedRating = rating
         ? rating.toFixed(1)
         : "N/A";
-    // CRUD
     const handleMyList = (e) => {
         e.stopPropagation();
         if (isSaved) {
-            removeFromWatchlist(id);
+            dispatch(removeFromWatchlist(id));
         } else {
-            addToWatchlist({
-                id,
-                image,
-                title,
-                rating,
-                genres,
-                variant
-            });
+            dispatch(
+                addToWatchlist({
+                    id,
+                    image,
+                    title,
+                    rating,
+                    genres,
+                    variant
+                })
+            );
         }
     };
     if (variant === 'continue') {
@@ -59,10 +60,7 @@ const MovieCard = ({
                         {title}
                     </h3>
                     <div className="flex items-center gap-1">
-                        <FaStar
-                            size={11}
-                            className="text-yellow-400"
-                        />
+                        <FaStar size={11} className="text-yellow-400" />
                         <span className="text-white/80 text-[12px] font-semibold">
                             {formattedRating}
                         </span>
@@ -77,26 +75,16 @@ const MovieCard = ({
                                     onClick={handleMyList}
                                     className="w-7 h-7 rounded-full border border-white/60 bg-black/40 flex items-center justify-center hover:scale-110 transition-transform"
                                 >
-                                    {isSaved
-                                        ? (
-                                            <FaCheck
-                                                size={8}
-                                                className="text-green-400"
-                                            />
-                                        )
-                                        : (
-                                            <FaPlus
-                                                size={8}
-                                                className="text-white"
-                                            />
-                                        )
-                                    }
+                                    {isSaved ? (
+                                        <FaCheck size={8} className="text-green-400" />
+                                    ) : (
+                                        <FaPlus size={8} className="text-white" />
+                                    )}
                                 </button>
                                 <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/90 backdrop-blur-md text-white text-[8px] font-medium px-1.5 py-[2px] rounded opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-all duration-150 z-[9999] leading-none">
                                     {isSaved
                                         ? 'Hapus dari Daftar Saya'
-                                        : 'Tambahkan ke Daftar Saya'
-                                    }
+                                        : 'Tambahkan ke Daftar Saya'}
                                 </div>
                             </div>
                         </div>
@@ -122,7 +110,7 @@ const MovieCard = ({
                         <div
                             className="h-full bg-[#2F80ED]"
                             style={{ width: `${progress}%` }}
-                        ></div>
+                        />
                     </div>
                 )}
             </div>
@@ -140,10 +128,7 @@ const MovieCard = ({
                     {title}
                 </h3>
                 <div className="flex items-center gap-1.5">
-                    <FaStar
-                        size={13}
-                        className="text-yellow-400"
-                    />
+                    <FaStar size={13} className="text-yellow-400" />
                     <span className="text-white/90 text-[12px] md:text-[14px] font-bold">
                         {formattedRating}
                     </span>
@@ -158,26 +143,16 @@ const MovieCard = ({
                                 onClick={handleMyList}
                                 className="w-8 h-8 rounded-full border border-white/60 bg-black/40 flex items-center justify-center hover:scale-110 transition-transform"
                             >
-                                {isSaved
-                                    ? (
-                                        <FaCheck
-                                            size={9}
-                                            className="text-green-400"
-                                        />
-                                    )
-                                    : (
-                                        <FaPlus
-                                            size={9}
-                                            className="text-white"
-                                        />
-                                    )
-                                }
+                                {isSaved ? (
+                                    <FaCheck size={9} className="text-green-400" />
+                                ) : (
+                                    <FaPlus size={9} className="text-white" />
+                                )}
                             </button>
                             <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/90 backdrop-blur-md text-white text-[8px] font-medium px-1.5 py-[2px] rounded opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-all duration-150 z-[9999] leading-none">
                                 {isSaved
                                     ? 'Hapus dari Daftar Saya'
-                                    : 'Tambahkan ke Daftar Saya'
-                                }
+                                    : 'Tambahkan ke Daftar Saya'}
                             </div>
                         </div>
                     </div>

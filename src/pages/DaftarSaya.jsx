@@ -1,12 +1,20 @@
-import useWatchlistStore from '../store/useWatchlistStore';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import Navbar from '../components/Navbar';
+import SEO from '../components/SEO';
+
+import logo from '../assets/logo/logo.png'; 
 
 const DaftarSaya = () => {
+    const watchlist = useSelector(
+        (state) => state.watchlist.watchlist
+    );
+    const navigate = useNavigate();
 
-    const { watchlist } = useWatchlistStore();
     return (
         <div className="min-h-screen bg-gradient-to-b from-black via-[#111111] to-[#181818] text-white overflow-hidden">
+            <SEO title="DaftarSaya" description="Chill adalah platform streaming modern." />
             <Navbar />
             <main className="relative px-4 md:px-10 pt-28 pb-20">
                 <div className="relative mb-12 md:mb-16">
@@ -20,50 +28,56 @@ const DaftarSaya = () => {
                         </p>
                         {watchlist.length > 0 && (
                             <div className="flex items-center gap-2 mt-6">
-                                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                                <span className="text-sm text-zinc-400 font-medium">
-                                    {watchlist.length} Tersimpan
+                                <div className="h-1 w-8 bg-blue-500 rounded-full"></div>
+                                <span className="text-sm font-medium text-zinc-300">
+                                    {watchlist.length} Judul Tersimpan
                                 </span>
                             </div>
                         )}
                     </div>
                 </div>
-                {/* state kosong */}
                 {watchlist.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center h-[55vh] text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                    <div className="flex flex-col items-center justify-center py-20 text-center relative z-10">
+                        
+                        {/* BAGIAN LOGO PENGGANTI SVG KERTAS */}
+                        <div className="mb-8 flex items-center justify-center">
+                            <img 
+                                src={logo} 
+                                alt="Chill Movie Logo" 
+                                className="h-12 md:h-16 object-contain opacity-70 drop-shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:opacity-100 hover:scale-110 transition-all duration-300"
+                            />
+                        </div>
+                        <h2 className="text-2xl font-bold mb-3">
                             Daftar Kamu Masih Kosong
                         </h2>
-                        <p className="text-zinc-500 max-w-md leading-relaxed text-sm md:text-base">
-                            Simpan film kesukaan kamu dan tonton nanti.
+                        <p className="text-zinc-400 max-w-md">
+                            Simpan film kesukaan kamu dan tonton nanti
                         </p>
                         <button
-                            onClick={() => window.location.href = '/'}
+                            onClick={() => navigate('/')}
                             className="mt-8 px-8 py-3 bg-blue-400 text-black font-bold rounded-md hover:bg-blue-600 transition-all duration-300 hover:scale-125"
                         >
                             Cari Film
                         </button>
                     </div>
                 ) : (
-                    <>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-y-8 gap-x-4">
-                            {watchlist.map((movie) => (
-                                <div
-                                    key={movie.id}
-                                    className="relative flex justify-center"
-                                >
-                                    <MovieCard
-                                        id={movie.id}
-                                        title={movie.title}
-                                        image={movie.image}
-                                        rating={movie.rating}
-                                        genres={movie.genres}
-                                        variant={movie.variant || 'portrait'}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-y-8 gap-x-4">
+                        {watchlist.map((movie) => (
+                            <div
+                                key={movie.id}
+                                className="relative flex justify-center"
+                            >
+                                <MovieCard
+                                    id={movie.id}
+                                    title={movie.title}
+                                    image={movie.image}
+                                    rating={movie.rating}
+                                    genres={movie.genres}
+                                    variant={movie.variant || 'portrait'}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 )}
             </main>
         </div>

@@ -29,7 +29,6 @@ const Hero = () => {
     };
     return (
         <section className="relative h-[60vh] md:h-[95vh] w-full overflow-hidden bg-[#181818]">
-            {/*  Background Container YT*/}
             <div className="absolute inset-0 w-full h-full">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent z-10 opacity-90"></div>
                 <iframe
@@ -48,7 +47,6 @@ const Hero = () => {
                 <p className="text-white text-[14px] md:text-[18px] font-medium max-w-[500px] leading-relaxed drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                     Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam perang.
                 </p>
-                {/* Tombol Aksi */}
                 <div className="flex flex-wrap items-center gap-3 md:gap-4 mt-2">
                     <button
                         onClick={togglePlay}
